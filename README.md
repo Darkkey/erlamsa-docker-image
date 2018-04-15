@@ -12,7 +12,7 @@ docker run --name erlamsa_instance -t erlamsa-service
 
 ## Running
 
-Erlamsa service exposes 17771 port, bind it to localhost. After it you could call it using normal client scripts (see http://github.com/Darkkey/erlamsa/clients):
+Erlamsa service exposes 17771 port, bind it to localhost. After it you could call it using normal client scripts (see https://github.com/Darkkey/erlamsa/tree/master/clients):
 
 Result:
 ```
