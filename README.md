@@ -1,7 +1,7 @@
 # erlamsa Dockerfile
 Docker image building recipe for erlamsa fuzzer (see http://github.com/Darkkey/erlamsa)
 
-## Building:
+## Building
 
 To build & run the container, go to the directory with Dockerfile and execute from docker shell:
 
@@ -12,7 +12,7 @@ docker run --name erlamsa_instance -t erlamsa-service
 
 ## Running
 
-Erlamsa service exposes 17771 port, bind it to localhost. After it you could call it using normal client scripts (see http://Darkkey/erlamsa/clients):
+Erlamsa service exposes 17771 port, bind it to localhost. After it you could call it using normal client scripts (see http://github.com/Darkkey/erlamsa/clients):
 
 Result:
 ```
