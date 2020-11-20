@@ -12,7 +12,16 @@ docker run --name erlamsa_instance -t erlamsa-service
 
 ## Running
 
-Erlamsa service exposes 17771 port, bind it to localhost. After it you could call it using normal client scripts (see https://github.com/Darkkey/erlamsa/tree/master/clients):
+Erlamsa service exposes 17771 port, bind it to localhost. After it you could call it using normal client scripts (see https://github.com/Darkkey/erlamsa/tree/master/clients) or e.g. pyerlamsa (check https://github.com/Darkkey/pyerlamsa/ for more info) module:
+```
+$ pip3 install pyerlamsa
+$ python3
+...
+>>> import pyerlamsa
+>>> e = pyerlamsa.Erlamsa('http://127.0.0.1:17771')
+>>> e.call('Hello erlamsa!');
+(True, 'Hell4amsa15i685\x81\x91')
+```
 
 Result:
 ```
