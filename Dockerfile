@@ -1,9 +1,9 @@
-FROM ubuntu
+FROM alpine
 
-RUN apt-get update && apt-get install -y git erlang erlang-dev erlang-tools erlang-ssl erlang-eunit erlang-mnesia erlang-inets make
-RUN mkdir -p /opt && cd /opt && git clone https://github.com/Darkkey/erlamsa && cd /opt/erlamsa && echo -n > /opt/erlamsa/src/dependencies.hrl && escript rebar get-deps compile eunit skip_deps=true
-RUN echo "#!/bin/sh\n/opt/erlamsa/erlamsa -H 127.0.0.1:17771 -L -" > /usr/bin/erlamsa-service && chmod +x /usr/bin/erlamsa-service
+RUN apk add git erlang make erlang-dev
+RUN mkdir -p /opt && cd /opt && git clone https://github.com/Darkkey/erlamsa && cd /opt/erlamsa && echo -n > /opt/erlamsa/src/dependencies.hrl && cp rebar.config.win rebar.config && echo -n '' > src/version.hrl && escript rebar3.win compile eunit && escript script-builder
+RUN echo "#!/bin/sh" > /opt/erlamsa-service && echo "/opt/erlamsa/erlamsa -H 0.0.0.0:17771 -L -" >> /opt/erlamsa-service && chmod +x /opt/erlamsa-service
 
 EXPOSE 17771
 
-ENTRYPOINT ["/usr/bin/erlamsa-service"]
+ENTRYPOINT ["/opt/erlamsa-service"]
